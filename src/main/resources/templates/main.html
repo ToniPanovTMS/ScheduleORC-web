@@ -3,1496 +3,544 @@
 <head>
     <meta charset="utf-8">
     <title>Расписание ОРК</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="C:\Users\servise\Documents\ScheduleORC-web\ScheduleORC-web\src\main\resources\templates\style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="icon.ico" />
+    <link rel="shortcut icon" href="C:\Users\servise\Documents\ScheduleORC-web\ScheduleORC-web\src\main\resources\templates\icon.ico" />
+    <style>
+    TABLE {
+         border-collapse: collapse; /* Убираем двойные линии между ячейками */
+         table-layout: fixed;
+         width: 100%
+        }
+        TD, TH {
+         padding: 5px; /* Поля вокруг содержимого таблицы */
+         border: 2px solid black; /* Параметры рамки */
+         padding-left: 2px;
+        }
+        P{
+                font-weight: bolder;
+                text-align: center;
+        }
+  </style>
 </head>
 <body>
     <header th:insert="blocks/header :: header"></header>
-    <div style="margin: 3% 3% 3% 3%;">
+    <div style="margin: 100px 1% 0% 1%;">
+        <form action="/" method="post">
     <table>
-    <tbody>
-        <tr style="height: 20px">
-             <td class="a0" dir="ltr" colspan="3">
-                <p>Понедельник 25.12</p>
+        <tbody>
+        <tr>
+            <td colspan="3"><p>Понедельник</p></td>
+            <td colspan="3"><p>Вторник</p></td>
+            <td colspan="3"><p>Среда</p></td>
+            <td colspan="3"><p>Четверг</p></td>
+            <td colspan="3"><p>Пятница</p></td>
+            <td><p>Суббота</p></td>
+        </tr>
+        <tr>
+            <td><p>9:00</p></td>
+            <td><p>9:30</p></td>
+            <td><p>10:30</p></td>
+            <td><p>9:00</p></td>
+            <td><p>9:30</p></td>
+            <td><p>10:30</p></td>
+            <td><p>9:00</p></td>
+            <td><p>9:30</p></td>
+            <td><p>10:30</p></td>
+            <td><p>9:00</p></td>
+            <td><p>9:30</p></td>
+            <td><p>10:30</p></td>
+            <td><p>9:00</p></td>
+            <td><p>9:30</p></td>
+            <td><p>10:30</p></td>
+            <td><p>11:00-16:00</p></td>
+        </tr>
+        <tr>
+            <td colspan="15"><p>Support до 15:00</p></td>
+            <td>
+                <select id="sat1">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-             <td class="a1" dir="ltr" colspan="3">
-                <p>Вторник 26.12</p>
+        </tr>
+        <tr>
+            <td>
+                <select id="manUntil1">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-             <td class="a2" dir="ltr" colspan="3">
-                <p>Среда 27.12</p>
+            <td>
+                <select id="manUntil2">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-             <td class="a3" dir="ltr" colspan="3">
-                <p>Четверг 28.12</p>
+            <td>
+                <select id="manUntil3">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-             <td class="a4" dir="ltr" colspan="3">
-                <p>Пятница 29.12</p>
+            <td>
+                <select id="TueUntil1">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-             <td class="a5" dir="ltr" colspan="3">
-                <p>Суббота 30.12</p>
+            <td>
+                <select id="TueUntil2">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-        
-    </tr>
-        <tr style="height: 20px">
-            <td class="b1">
-                <p>9:00</p>
+            <td>
+                <select id="TueUntil3">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s1" dir="ltr">
-                <p>9:30</p>
+            <td>
+                <select id="WedUntil1">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s2" dir="ltr">
-                <p>10:30</p>
+            <td>
+                <select id="WedUntil2">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="b1">
-                <p>9:00</p>
+            <td>
+                <select id="WedUntil3">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s1" dir="ltr">
-                <p>9:30</p>
+            <td>
+                <select id="ThuUntil1">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s2" dir="ltr">
-                <p>10:30</p>
+            <td>
+                <select id="ThuUntil2">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="b1">
-                <p>9:00</p>
+            <td>
+                <select id="ThuUntil3">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s1" dir="ltr">
-                <p>9:30</p>
+            <td>
+                <select id="FriUntil1">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s2" dir="ltr">
-                <p>10:30</p>
+            <td>
+                <select id="FriUntil2">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="b1">
-                <p>9:00</p>
+            <td>
+                <select id="FriUntil3">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s1" dir="ltr">
-                <p>9:30</p>
+            <td>
+                <select id="Sat2">
+                    <option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s2" dir="ltr">
-                <p>10:30</p>
+
+        </tr>
+        <tr>
+            <td>
+                <select id="manUntil4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="b1">
-                <p>9:00</p>
+            <td>
+                <select id="manUntil5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s1" dir="ltr">
-                <p>9:30</p>
+            <td>
+                <select id="manUntil6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s2" dir="ltr">
-                <p>10:30</p>
+            <td>
+                <select id="TueUntil4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s3" dir="ltr" colspan="3">
-                <p>11:00-16:00</p>
+            <td>
+                <select id="TueUntil5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-    </tr>
-    <tr style="height: 20px">
-            <td class="s4" dir="ltr" colspan="15">
-                <p>Support до 15:00</p>
+            <td>
+                <select id="TueUntil6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s5" dir="ltr" colspan="3">
-                <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select></td>
-    </tr>
-    <tr style="height: 20px">
-            <td class="s6" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="WedUntil4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s7" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="WedUntil5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s7" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="WedUntil6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s6" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="ThuUntil4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s7" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="ThuUntil5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s3" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="ThuUntil6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s6" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="FriUntil4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s7" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="FriUntil5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s6" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="FriUntil6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s6" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="Sat3"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s7" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+        </tr>
+        <tr>
+            <td colspan="15"><p>Support с 15:00 до 20:00</p></td>
+            <td>
+                <select id="Sat4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s7" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+        </tr>
+        <tr>
+            <td>
+                <select id="manAfter1"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s6" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="manAfter2"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s7" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="manAfter3"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s3" dir="ltr">
-                <select id="fruits" name="fruits">
-                    <option value="null"></option>
-                    <option value="Батталова">Батталова</option>
-                    <option value="Борисевич">Борисевич</option>
-                    <option value="Валушко">Валушко</option>
-                    <option value="Есипович">Есипович</option>
-                    <option value="Маевская">Маевская</option>
-                    <option value="Мамай">Мамай</option>
-                    <option value="Мешкова">Мешкова</option>
-                    <option value="Сакович">Сакович</option>
-                    <option value="Гаврилюк">Гаврилюк</option>
-                    <option value="Охремчик">Охремчик</option>
-                    <option value="Столяр">Столяр</option>
-                    <option value="Братикова">Братикова</option>
-                    <option value="Курцева">Курцева</option>
-                    <option value="Макаренко">Макаренко</option>
-                    <option value="Пищенко">Пищенко</option>
-                    <option value="Стрельцова">Стрельцова</option>
-                    <option value="Кардаш">Кардаш</option>
-                  </select>
+            <td>
+                <select id="TueAfter1"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            <td class="s5" dir="ltr" colspan="3">
-<select id="fruits" name="fruits">
-    <option value="null"></option>
-    <option value="Батталова">Батталова</option>
-    <option value="Борисевич">Борисевич</option>
-	<option value="Валушко">Валушко</option>
-    <option value="Есипович">Есипович</option>
-	<option value="Маевская">Маевская</option>
-    <option value="Мамай">Мамай</option>
-	<option value="Мешкова">Мешкова</option>
-    <option value="Сакович">Сакович</option>
-	<option value="Гаврилюк">Гаврилюк</option>
-    <option value="Охремчик">Охремчик</option>
-	<option value="Столяр">Столяр</option>
-    <option value="Братикова">Братикова</option>
-	<option value="Курцева">Курцева</option>
-    <option value="Макаренко">Макаренко</option>
-	<option value="Пищенко">Пищенко</option>
-    <option value="Стрельцова">Стрельцова</option>
-	<option value="Кардаш">Кардаш</option>
-  </select>
+            <td>
+                <select id="TueAfter2"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-    </tr>
-    <tr style="height: 20px">
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s3" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s3" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-    </tr>
-    <tr style="height: 20px">
-            <td class="s4" dir="ltr" colspan="15">
-                <p>Support с 15:00 до 20:00</p>
+            <td>
+                <select id="TueAfter3"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
             </td>
-            
-    </tr>
-    <tr style="height: 20px">
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s3" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s3" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-    </tr>
-    <tr style="height: 20px">
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s3" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s6" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s7" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-        <td class="s3" dir="ltr">
-            <select id="fruits" name="fruits">
-                <option value="null"></option>
-                <option value="Батталова">Батталова</option>
-                <option value="Борисевич">Борисевич</option>
-                <option value="Валушко">Валушко</option>
-                <option value="Есипович">Есипович</option>
-                <option value="Маевская">Маевская</option>
-                <option value="Мамай">Мамай</option>
-                <option value="Мешкова">Мешкова</option>
-                <option value="Сакович">Сакович</option>
-                <option value="Гаврилюк">Гаврилюк</option>
-                <option value="Охремчик">Охремчик</option>
-                <option value="Столяр">Столяр</option>
-                <option value="Братикова">Братикова</option>
-                <option value="Курцева">Курцева</option>
-                <option value="Макаренко">Макаренко</option>
-                <option value="Пищенко">Пищенко</option>
-                <option value="Стрельцова">Стрельцова</option>
-                <option value="Кардаш">Кардаш</option>
-              </select>
-        </td>
-          
-    </tr>
-</tbody>
-</table>
+            <td>
+                <select id="WedAfter1"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="WedAfter2"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="WedAfter3"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="ThuAfter1"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="ThuAfter2"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="ThuAfter3"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="FriAfter1"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="FriAfter2"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="FriAfter3"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <select id="manAfter4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="manAfter5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="manAfter6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="TueAfter4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="TueAfter5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="TueAfter6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="WedAfter4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="WedAfter5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="WedAfter6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="ThuAfter4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="ThuAfter5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="ThuAfter6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="FriAfter4"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="FriAfter5"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+            <td>
+                <select id="FriAfter6"><option value=""></option>
+                    <div th:each="element: ${phons_namber}">
+                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
+                    </div>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+        </form>
     </div>
-    <div style="margin: 100px 0% 0% 1750px;">
-          сохранить
+    <div style="margin: 2% 5% 2% 93.3%;">
+    <button tupe="submit" class="btn btn-success"><p>Сохранить</p></button><br>
     </div>
 </body>
 </html>
