@@ -1,6 +1,5 @@
-<div>
-    TABLE {
-         width: 300px; /* Ширина таблицы */
+
+        TABLE {
          border-collapse: collapse; /* Убираем двойные линии между ячейками */
         }
         TD, TH {
@@ -14,7 +13,3 @@
                 font-weight: bolder;
                 text-align: center;
         }
-   div  {
-
-   }
-  </div>

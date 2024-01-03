@@ -35,7 +35,11 @@ public class schedule {
         return name;
     }
 
-    public schedule(String s, String понидельник, String until, String manUntil1) {
+    public schedule(String week_of_the_year, String day, String until_after, String name) {
+        this.week_of_the_year = week_of_the_year;
+        this.day = day;
+        this.until_after = until_after;
+        this.name = name;
     }
 
     public schedule(Long id, String week_of_the_year, String day, String until_after, String name) {
@@ -44,5 +48,8 @@ public class schedule {
         this.day = day;
         this.until_after = until_after;
         this.name = name;
+    }
+
+    public schedule() {
     }
 }

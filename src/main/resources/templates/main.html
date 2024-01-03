@@ -2,545 +2,831 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=1842">
     <title>Расписание ОРК</title>
-    <link rel="stylesheet" href="C:\Users\servise\Documents\ScheduleORC-web\ScheduleORC-web\src\main\resources\templates\style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="C:\Users\servise\Documents\ScheduleORC-web\ScheduleORC-web\src\main\resources\templates\icon.ico" />
-    <style>
-    TABLE {
-         border-collapse: collapse; /* Убираем двойные линии между ячейками */
-         table-layout: fixed;
-         width: 100%
-        }
-        TD, TH {
-         padding: 5px; /* Поля вокруг содержимого таблицы */
-         border: 2px solid black; /* Параметры рамки */
-         padding-left: 2px;
-        }
-        P{
-                font-weight: bolder;
-                text-align: center;
-        }
-  </style>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+    <link rel="shortcut icon" href="../static/css/icon.ico" th:href="@{/css/icon.ico}"/>
 </head>
 <body>
-    <header th:insert="blocks/header :: header"></header>
-    <div style="margin: 100px 1% 0% 1%;">
-        <form action="/" method="post">
-    <table>
-        <tbody>
-        <tr>
-            <td colspan="3"><p>Понедельник</p></td>
-            <td colspan="3"><p>Вторник</p></td>
-            <td colspan="3"><p>Среда</p></td>
-            <td colspan="3"><p>Четверг</p></td>
-            <td colspan="3"><p>Пятница</p></td>
-            <td><p>Суббота</p></td>
-        </tr>
-        <tr>
-            <td><p>9:00</p></td>
-            <td><p>9:30</p></td>
-            <td><p>10:30</p></td>
-            <td><p>9:00</p></td>
-            <td><p>9:30</p></td>
-            <td><p>10:30</p></td>
-            <td><p>9:00</p></td>
-            <td><p>9:30</p></td>
-            <td><p>10:30</p></td>
-            <td><p>9:00</p></td>
-            <td><p>9:30</p></td>
-            <td><p>10:30</p></td>
-            <td><p>9:00</p></td>
-            <td><p>9:30</p></td>
-            <td><p>10:30</p></td>
-            <td><p>11:00-16:00</p></td>
-        </tr>
-        <tr>
-            <td colspan="15"><p>Support до 15:00</p></td>
-            <td>
-                <select id="sat1">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <select id="manUntil1">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="manUntil2">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="manUntil3">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueUntil1">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueUntil2">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueUntil3">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedUntil1">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedUntil2">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedUntil3">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuUntil1">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuUntil2">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuUntil3">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriUntil1">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriUntil2">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriUntil3">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="Sat2">
-                    <option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
+<header th:insert="blocks/header :: header"></header>
+<div class="container">
+    <form action="/" method="post">
+        <div>
+            <table  width=100%>
+                <tbody>
+                <tr>
+                    <td colspan="3"><p>Понедельник</p></td>
+                    <td colspan="3"><p>Вторник</p></td>
+                    <td colspan="3"><p>Среда</p></td>
+                    <td colspan="3"><p>Четверг</p></td>
+                    <td colspan="3"><p>Пятница</p></td>
+                    <td><p>Суббота</p></td>
+                </tr>
+                <tr>
+                    <td><p>9:00</p></td>
+                    <td><p>9:30</p></td>
+                    <td><p>10:30</p></td>
+                    <td><p>9:00</p></td>
+                    <td><p>9:30</p></td>
+                    <td><p>10:30</p></td>
+                    <td><p>9:00</p></td>
+                    <td><p>9:30</p></td>
+                    <td><p>10:30</p></td>
+                    <td><p>9:00</p></td>
+                    <td><p>9:30</p></td>
+                    <td><p>10:30</p></td>
+                    <td><p>9:00</p></td>
+                    <td><p>9:30</p></td>
+                    <td><p>10:30</p></td>
+                    <td><p>11:00-16:00</p></td>
+                </tr>
+                <tr>
+                    <td colspan="15"><p>Support до 15:00</p></td>
+                    <td>
 
-        </tr>
-        <tr>
-            <td>
-                <select id="manUntil4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="manUntil5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="manUntil6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueUntil4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueUntil5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueUntil6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedUntil4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedUntil5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedUntil6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuUntil4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuUntil5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuUntil6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriUntil4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriUntil5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriUntil6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="Sat3"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="15"><p>Support с 15:00 до 20:00</p></td>
-            <td>
-                <select id="Sat4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <select id="manAfter1"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="manAfter2"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="manAfter3"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueAfter1"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueAfter2"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueAfter3"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedAfter1"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedAfter2"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedAfter3"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuAfter1"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuAfter2"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuAfter3"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriAfter1"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriAfter2"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriAfter3"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <select id="manAfter4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="manAfter5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="manAfter6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueAfter4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueAfter5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="TueAfter6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedAfter4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedAfter5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="WedAfter6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuAfter4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuAfter5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="ThuAfter6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriAfter4"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriAfter5"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-            <td>
-                <select id="FriAfter6"><option value=""></option>
-                    <div th:each="element: ${phons_namber}">
-                        <option value=th:text="${element.name}"><p th:text="${element.name}"/></option>
-                    </div>
-                </select>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-        </form>
-    </div>
-    <div style="margin: 2% 5% 2% 93.3%;">
-    <button tupe="submit" class="btn btn-success"><p>Сохранить</p></button><br>
-    </div>
+                        <select id="sat1" name="sat1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="sat1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="manUntil1" name="manUntil1">
+                            <option value=""></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manUntil1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+                    </td>
+                    <td>
+
+
+                        <select id="manUntil2" name="manUntil2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manUntil2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="manUntil3" name="manUntil3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manUntil3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueUntil1" name="TueUntil1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueUntil1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueUntil2" name="TueUntil2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueUntil2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueUntil3" name="TueUntil3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueUntil3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedUntil1" name="WedUntil1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedUntil1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedUntil2" name="WedUntil2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedUntil2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedUntil3" name="WedUntil3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedUntil3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuUntil1" name="ThuUntil1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuUntil1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuUntil2" name="ThuUntil2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuUntil2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuUntil3" name="ThuUntil3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuUntil3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriUntil1" name="FriUntil1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriUntil1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriUntil2" name="FriUntil2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriUntil2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriUntil3" name="FriUntil3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriUntil3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="Sat2" name="Sat2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="Sat2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+
+
+                        <select id="manUntil4" name="manUntil4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manUntil4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="manUntil5" name="manUntil5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manUntil5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="manUntil6" name="manUntil6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manUntil6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueUntil4" name="TueUntil4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueUntil4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueUntil5" name="TueUntil5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueUntil5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueUntil6" name="TueUntil6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueUntil6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedUntil4" name="WedUntil4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedUntil4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedUntil5" name="WedUntil5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedUntil5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedUntil6" name="WedUntil6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedUntil6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuUntil4" name="ThuUntil4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuUntil4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuUntil5" name="ThuUntil5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuUntil5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuUntil6" name="ThuUntil6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuUntil6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriUntil4" name="FriUntil4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriUntil4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriUntil5" name="FriUntil5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriUntil5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriUntil6" name="FriUntil6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriUntil6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="Sat3" name="Sat3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="Sat3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="15"><p>Support с 15:00 до 20:00</p></td>
+                    <td>
+
+
+                        <select id="Sat4" name="Sat4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="Sat4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+
+                        <select id="manAfter1" name="manAfter1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manAfter1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="manAfter2" name="manAfter2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manAfter2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="manAfter3" name="manAfter3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manAfter3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueAfter1" name="TueAfter1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueAfter1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueAfter2" name="TueAfter2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueAfter2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueAfter3" name="TueAfter3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueAfter3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedAfter1" name="WedAfter1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedAfter1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedAfter2" name="WedAfter2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedAfter2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedAfter3" name="WedAfter3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedAfter3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuAfter1" name="ThuAfter1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuAfter1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuAfter2" name="ThuAfter2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuAfter2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuAfter3" name="ThuAfter3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuAfter3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriAfter1" name="FriAfter1">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriAfter1" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriAfter2" name="FriAfter2">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriAfter2" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriAfter3" name="FriAfter3">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriAfter3" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+
+                        <select id="manAfter4" name="manAfter4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manAfter4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="manAfter5" name="manAfter5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manAfter5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="manAfter6" name="manAfter6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="manAfter6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueAfter4" name="TueAfter4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueAfter4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueAfter5" name="TueAfter5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueAfter5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="TueAfter6" name="TueAfter6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="TueAfter6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedAfter4" name="WedAfter4">
+                            <option value=""></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedAfter4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedAfter5" name="WedAfter5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedAfter5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="WedAfter6" name="WedAfter6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="WedAfter6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuAfter4" name="ThuAfter4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuAfter4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuAfter5" name="ThuAfter5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuAfter5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="ThuAfter6" name="ThuAfter6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="ThuAfter6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriAfter4" name="FriAfter4">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriAfter4" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriAfter5" name="FriAfter5">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriAfter5" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                    <td>
+
+
+                        <select id="FriAfter6" name="FriAfter6">
+                            <option value=""><p> </p></option>
+                            <div th:each="element: ${phons_namber}">
+                                <option type="text" name="FriAfter6" th:text="${element.name}"></option>
+                            </div>
+                        </select>
+
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div style="margin: 2% 5% 2% 93.3%;">
+            <button tupe="submit" class="btn btn-success"><p>Сохранить</p></button><br>
+        </div>
+    </form>
+</div>
 </body>
 </html>
