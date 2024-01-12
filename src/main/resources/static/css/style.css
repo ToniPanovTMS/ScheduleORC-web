@@ -1,9 +1,11 @@
 
         TABLE {
          border-collapse: collapse; /* Убираем двойные линии между ячейками */
+         table-layout: fixed;
+         width: 100%;
         }
         TD, TH {
-         padding: 5px; /* Поля вокруг содержимого таблицы */
+         padding-lift: 100px; /* Поля вокруг содержимого таблицы */
          border: 2px solid black; /* Параметры рамки */
         }
         TH {
@@ -12,4 +14,11 @@
         P{
                 font-weight: bolder;
                 text-align: center;
+        }
+        conteiner{
+        width: 1840px;
+        margin: 0px auto;
+        }
+        body{
+        min-width: 1840px;
         }

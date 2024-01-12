@@ -20,11 +20,13 @@
 <header th:insert="blocks/header :: header"></header>
 <div class="container mt-5 md-5">
   <form action="/test" method="post">
+    <div th:each="e: ${schedule}"><p type="text" th:text="${e.name}"></p></div>
     <select id="manUntil1" name="manUntil1">
       <option value=""></option>
       <div th:each="element: ${phons_namber}">
         <option type="text" name="manUntil1" th:text="${element.name}"></option>
       </div>
+      <option value="Delete"><p>Удалить</p></option>
     </select>
     <button tupe="submit" class="btn btn-success">Добавить запись</button><br>
   </form>
