@@ -22,6 +22,4 @@ public interface scheduleRepository extends CrudRepository<schedule, Long>{
     @Modifying
     @Query("DELETE from schedule s WHERE s.day=:day AND s.week_of_the_year=:week_of_the_year AND s.until_after=:until_after")
     void deleteNameByAll(@Param("week_of_the_year") String week_of_the_year,@Param("day") String day,@Param("until_after") String until_after);
-
-
 }

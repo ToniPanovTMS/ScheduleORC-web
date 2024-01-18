@@ -5,7 +5,11 @@ import jakarta.persistence.*;
 @Entity
 public class schedule {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "seq",
+            sequenceName = "sequence",
+            initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String week_of_the_year;
     private String day;

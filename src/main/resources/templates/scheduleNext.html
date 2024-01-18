@@ -12,10 +12,10 @@
 <header th:insert="blocks/header :: header"></header>
 <div class="conteiner" style="margin: 1% 1% 1% 1%;">
 
-  <form action="/" method="post" >
-    <h1>Новая неделя</h1>
+  <form action="/scheduleNext" method="post" >
+    <h1>Следующая неделя</h1>
     <div>
-      <table>
+      <table class="tab2">
         <tbody>
         <tr>
           <td colspan="3"><p>Понедельник</p></td>
@@ -28,13 +28,13 @@
         <tr>
           <td colspan="15"><p>Support до 15:00</p></td>
           <td>
-            <div th:each="e: ${scheduleSat1}"><p type="text" th:text="${e.name}"> </p></div>
+            <div th:each="e: ${scheduleSat1}"><p type="text" th:text="${e.name}"></p></div>
             <select id="sat1" name="sat1">
               <option value=""><p> </p></option>
               <div th:each="element: ${phons_namber}">
                 <option type="text" name="sat1" th:text="${element.name}"></option>
               </div>
-              <option value="Delete"><p>Удалить</p></option></select>
+              <option value="Delete" id="Delete"><p>Удалить</p></option></select>
           </td>
         </tr>
         <tr>
@@ -804,7 +804,6 @@
       </table>
 
     </div>
-
     <div style="margin: 2% 5% 2% 93.3%;">
       <button tupe="submit" class="btn btn-success"><p>Сохранить</p></button><br>
     </div>

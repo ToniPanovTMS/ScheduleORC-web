@@ -14,17 +14,42 @@
          padding: 5px; /* Поля вокруг содержимого таблицы */
          border: 1px solid black; /* Параметры рамки */
         }
+    select {
+    width: 100%;
+    margin-bottom: 20px;
+   }
   </style>
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
-<div class="container mt-5 md-5">
-  <h1>Добавление пользователя</h1>
   <form action="/seting/add" method="post" autocomplete="off">
-    <input type="text" name="name" placeholder="Ввеите фамилию сотрудника" class="form-control"><br>
-    <input type="text" name="namber_phone" placeholder="Ввеите номер телефона" class="form-control"><br>
-    <button tupe="submit" class="btn btn-success">Добавить запись</button><br>
+      <div class="container mt-5 md-5">
+        <h1>Добавление пользователя</h1>
+          <input type="text" name="nameAdd" placeholder="Ввеите фамилию сотрудника" class="form-control"><br>
+          <input type="text" name="namberPhoneAdd" placeholder="Ввеите номер телефона" class="form-control"><br>
+      </div>
+      <div class="container mt-5 md-5">
+        <h1>Изменение пользователя</h1>
+            <select id="nameEdit" name="nameEdit">
+              <option value=""></option>
+              <div th:each="element: ${phons_namber}">
+                <option type="text" name="nameEdit" th:text="${element.name}"></option>
+              </div>
+            </select>
+          <input type="text" name="phoneNamberEdit" placeholder="Введите новый номер" class="form-control"><br>
+      </div>
+      <div class="container mt-5 md-5">
+        <h1>Удаление пользователя</h1>
+          <select id="nameDelete" name="nameDelete">
+            <option value=""></option>
+            <div th:each="element: ${phons_namber}">
+              <option type="text" name="nameDelete" th:text="${element.name}"></option>
+            </div>
+          </select>
+      </div>
+      <div class="container mt-5 md-5">
+      <button tupe="submit" class="btn btn-success">Сохранить изменения</button><br>
+      </div>
   </form>
-</div>
 </body>
 </html>

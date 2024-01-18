@@ -1,17 +1,18 @@
 package com.example.ScheduleORCweb.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class phons_namber {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "seq",
+            sequenceName = "sequence_phone",
+            initialValue = 1, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private Short namber_phone;
+    private String namber_phone;
 
 
     public Long getId() {
@@ -30,14 +31,14 @@ public class phons_namber {
         this.name = name;
     }
 
-    public Short getNamber_phone() {
+    public String getNamber_phone() {
         return namber_phone;
     }
 
-    public void setNamber_phone(Short namber_phone) {
+    public void setNamber_phone(String namber_phone) {
         this.namber_phone = namber_phone;
     }
-    public phons_namber(String name, Short namber_phone) {
+    public phons_namber(String name, String namber_phone) {
         this.name = name;
         this.namber_phone = namber_phone;
     }

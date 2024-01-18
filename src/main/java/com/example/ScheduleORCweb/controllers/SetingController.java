@@ -27,30 +27,17 @@ public class SetingController {
         return "SetingAdd";
     }
     @PostMapping("/seting/add")
-    public String SetingAddPostController(@RequestParam String name, @RequestParam Short namber_phone,Model model){
-        phons_namber phons_namber2 = new phons_namber(name,namber_phone);
-        phons_namberRepository.save(phons_namber2);
-        return "redirect:/seting";
-    }
-    @GetMapping("/seting/edit")
-    public String SetingEditController(Model model){
-        return "SetingEdit";
-    }
-    @PostMapping("/seting/edit")
-    public String SetingEditPostController(@RequestParam Long idEdit,@RequestParam Short phoneEdit, Model model){
-         phons_namber phons_namber1= phons_namberRepository.findById(idEdit).orElseThrow();
-         phons_namber1.setNamber_phone(phoneEdit);
-         phons_namberRepository.save(phons_namber1);
-        return "redirect:/seting";
-    }
-    @GetMapping("/seting/delite")
-    public String SetingDeliteController(Model model){
-        return "SetingDelite";
-    }
-    @PostMapping("/seting/delite")
-    public String SetingDelitePostController(@RequestParam Long idEdit, Model model){
-        phons_namber phons_namber1= phons_namberRepository.findById(idEdit).orElseThrow();
-        phons_namberRepository.delete(phons_namber1);
+    public String SetingAddPostController(@RequestParam String nameAdd, @RequestParam String namberPhoneAdd,@RequestParam String nameEdit,@RequestParam String phoneNamberEdit,@RequestParam String nameDelete,Model model){
+        if(nameAdd != ""&& namberPhoneAdd != null) {
+            phons_namber phons_namber2 = new phons_namber(nameAdd, namberPhoneAdd);
+            phons_namberRepository.save(phons_namber2);
+        }
+        if(nameEdit != "" && phoneNamberEdit != null){
+            phons_namberRepository.UpdatePhoneNamberByName(phoneNamberEdit,nameEdit);
+        }if(nameDelete != ""){
+            phons_namberRepository.DeleteAllByName(nameDelete);
+        }
+
         return "redirect:/seting";
     }
 }
