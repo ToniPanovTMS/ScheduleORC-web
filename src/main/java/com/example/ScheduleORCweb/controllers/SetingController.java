@@ -28,11 +28,11 @@ public class SetingController {
     }
     @PostMapping("/seting/add")
     public String SetingAddPostController(@RequestParam String nameAdd, @RequestParam String namberPhoneAdd,@RequestParam String nameEdit,@RequestParam String phoneNamberEdit,@RequestParam String nameDelete,Model model){
-        if(nameAdd != ""&& namberPhoneAdd != null) {
+        if(nameAdd != ""|| namberPhoneAdd != null) {
             phons_namber phons_namber2 = new phons_namber(nameAdd, namberPhoneAdd);
             phons_namberRepository.save(phons_namber2);
         }
-        if(nameEdit != "" && phoneNamberEdit != null){
+        if(nameEdit != "" || phoneNamberEdit != null){
             phons_namberRepository.UpdatePhoneNamberByName(phoneNamberEdit,nameEdit);
         }if(nameDelete != ""){
             phons_namberRepository.DeleteAllByName(nameDelete);
